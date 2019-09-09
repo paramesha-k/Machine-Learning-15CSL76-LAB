@@ -26,7 +26,8 @@ def entropy_of_list(a_list):
     print("No and Yes Classes:",a_list.name,cnt)     
     num_instances = len(a_list)*1.0     
     probs = [x / num_instances for x in cnt.values()]     
-    return entropy(probs) # Call Entropy: 
+    return entropy(probs) # Call Entropy:
+
 total_entropy = entropy_of_list(df_tennis['PlayTennis']) 
 print("Entropy of given PlayTennis Data Set:",total_entropy) 
 
@@ -35,7 +36,7 @@ print("Entropy of given PlayTennis Data Set:",total_entropy)
 
 
 def information_gain(df, split_attribute_name, target_attribute_name, trace=0): 
-    df_split = df.groupby(split_attribute_name) 
+    print("&&&&&&&&&")
     for name,group in df_split:         
         print(name)         
         print(group) 
@@ -45,10 +46,14 @@ def information_gain(df, split_attribute_name, target_attribute_name, trace=0):
 
 
 def information_gain(df, split_attribute_name, target_attribute_name, trace=0): 
-    df_split = df.groupby(split_attribute_name) 
+    df_split = df.groupby(split_attribute_name)
+    print("splitttttttttttttttttttt")
+    print(split_attribute_name)
+    print("******************")
     for name,group in df_split:         
-        print(name)         
-        print(group)    
+        print("Name:",name)
+        print("Group:",group)
+    print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     nobs = len(df.index) * 1.0
     df_agg_ent = df_split.agg({target_attribute_name : [entropy_of_list, lambda x: len(x)/nobs] })[target_attribute_name] 
     df_agg_ent.columns = ['Entropy', 'PropObservations'] 
@@ -77,7 +82,8 @@ def id3(df, target_attribute_name, attribute_names, default_class=None):
     elif df.empty or (not attribute_names): 
              return default_class 
     else:
-        gainz = [information_gain(df, attr, target_attribute_name) for attr in attribute_names] 
+        gainz = [information_gain(df, attr, target_attribute_name) for attr in attribute_names]
+        print("ATTRIBUTE NAME:",attribute_names)
         index_of_max = gainz.index(max(gainz)) 
         best_attr = attribute_names[index_of_max] 
         tree = {best_attr:{}}
