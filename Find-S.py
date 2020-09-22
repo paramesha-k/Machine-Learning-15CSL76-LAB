@@ -3,7 +3,8 @@ import pandas as pd
 data = pd.read_csv("/content/sample_data/EnjoySport.csv", header=None)
 print(data)
 
-number_of_attributes=6
+number_of_attributes=len(data.columns)-1
+
 hypothesis=['0']*number_of_attributes
 
 print("H-0:",hypothesis)
