@@ -68,7 +68,7 @@ for index, row in data.iterrows():
          if row[ind]!=S[0][ind]:
            newh[ind]=S[0][ind]
            more_General.append(h) 
-           break
+           
       newG.append(newh)
       #print("addnew",newG)
     generalHypothesisRemovalList=list()
