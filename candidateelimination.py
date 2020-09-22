@@ -1,12 +1,12 @@
 import pandas as pd
 
-data = pd.read_csv("/content/sample_data/EnjoySport.csv", header=None)
-print(data)
+data = pd.read_csv("/content/sample_data/EconomyCar.csv", header=None)
+
 
 number_of_attributes=len(data.columns)-1
 
 S=[list('0'*number_of_attributes)]
-G=[list('?' *number_of_attributes)]
+G=[list('?'*number_of_attributes)]
 
 print(S)
 print(G)
@@ -68,9 +68,10 @@ for index, row in data.iterrows():
        if h[ind]=='?':
          if row[ind]!=S[0][ind]:
            newh[ind]=S[0][ind]
+           newG.append(newh)
            more_General.append(h) 
            
-      newG.append(newh)
+      
       #print("addnew",newG)
     generalHypothesisRemovalList=list()
 #    for generalhypothesis in more_General:
