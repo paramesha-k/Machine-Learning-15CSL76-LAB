@@ -3,6 +3,8 @@ inputNeurons=2
 hiddenlayerNeurons=2
 outputNeurons=2
 
+This is devops lab
+
 input  = np.random.randint(1,10,size=(1,inputNeurons))
 output = np.array([1.0, 0.0])
 
